@@ -25,7 +25,9 @@ T.block = block_num*ones(m,1);
 T.stim_condition(1:18,1) = {'SHAM'};
 T.stim_condition(19:36,1) = {'REAL'};
 T.tms_asynchrony = ones(m,1);
+T.tms_baseline_timing = -ones(m,1);
 T.no_tms_onset(1:36,1) = no_tms_onset;
+T.jitter = rand(36,1)/2; % add a random 0-0.5 s jitter between trials
 
 for i = 1:length(tms_onset)
     T.tms_asynchrony(i,1) = tms_onset(i);
